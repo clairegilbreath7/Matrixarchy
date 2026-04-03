@@ -1,0 +1,114 @@
+@font-face{
+  font-family:"CondenBitmap";
+  src:url("CondenBitmap.woff2") format("woff2");
+}
+
+:root{
+  --green:#29ED07;
+  --blue:#071AED;
+  --black:#000;
+}
+
+/* CURSOR */
+*{
+  cursor: url("https://assets.codepen.io/15398066/middlefinger_cursor.cur"), auto !important;
+}
+
+body{
+  margin:0;
+  overflow:hidden;
+  font-family:"CondenBitmap", monospace;
+}
+
+/* ---------- FRONT ---------- */
+.splash{
+  position:fixed;
+  inset:0;
+  background:var(--black);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.splash-text{
+  color:var(--green);
+  font-size:clamp(60px, 12vw, 160px);
+  letter-spacing:0.05em;
+  cursor:pointer;
+}
+
+/* ---------- SEQUENCE ---------- */
+.sequence{
+  position:fixed;
+  inset:0;
+  background:var(--green);
+}
+
+
+@keyframes jpg-load{
+  from{ clip-path:inset(0 0 100% 0); }
+  to  { clip-path:inset(0 0 0% 0); }
+}
+
+.display-image{
+  animation: jpg-load 1.5s steps(8) forwards;
+  position:fixed;
+  left:50%;
+  top:50%;
+  transform:translate(-50%, -50%);
+
+  width:78vw;
+  height:68vh;
+
+  object-fit:contain;
+
+  z-index:3;
+
+} 
+
+.text-slide{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:clamp(60px, 14vw, 220px);
+  color:var(--blue);
+  text-align:center;
+  z-index:3;
+}
+
+.reload-state{
+  background:var(--black);
+}
+
+.reload-state span{
+  border:3px solid var(--blue);
+  padding:20px 30px;
+  display:inline-block;
+}
+
+
+.hidden{
+  display:none;
+}
+
+/* ---------- TILES ---------- */
+.tile{
+  position:fixed;
+  width:200px;
+  height:140px;
+  z-index:3;
+  pointer-events:none;
+}
+
+.tile.reveal{
+  animation: vanish 0.08s forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes vanish{
+  0%   { opacity:1; }
+  99%  { opacity:1; }
+  100% { opacity:0; }
+}
