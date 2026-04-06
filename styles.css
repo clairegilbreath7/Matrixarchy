@@ -1,6 +1,11 @@
-@font-face{
-  font-family:"CondenBitmap";
-  src:url("CondenBitmap.woff2") format("woff2");
+
+@font-face {
+    font-family: 'condenbitmapcondenbitmap';
+    src: url('condenbitmap-j3wo-webfont.woff2') format('woff2'),
+         url('condenbitmap-j3wo-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 :root{
@@ -17,7 +22,7 @@
 body{
   margin:0;
   overflow:hidden;
-  font-family:"CondenBitmap", monospace;
+  font-family: "condenbitmapcondenbitmap", monospace;
 }
 
 /* ---------- FRONT ---------- */
